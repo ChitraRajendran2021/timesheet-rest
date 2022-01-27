@@ -19,7 +19,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn clean package -Dmaven.test.skip=true
     - name : Docker Login
       run :  docker login -u chitra2020 -p comedy8855
     - name: Build the Docker image
