@@ -8,10 +8,10 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 ARG JAR_FILE=target/springboot-backend-0.0.1-SNAPSHOT.jar
 
 # cp target/spring-boot-web.jar /opt/app/app.jar
-COPY ${} target/springboot-backend-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} app.jar
 
 # java -jar /opt/app/app.jar
-ENTRYPOINT ["java","-jar","springboot-backend-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
 
 EXPOSE 8080
 ## sudo docker run -p 8080:8080 -t docker-spring-boot:1.0
