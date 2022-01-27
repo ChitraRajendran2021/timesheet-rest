@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name : Docker Login
+      run :  docker login -u chitra2020 -p comedy8855
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag chitra2020/timesheetapp:latest
+    - name : Docker Push
+      run : docker push chitra2020/timesheetapp:latest
