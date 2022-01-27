@@ -19,11 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import net.javaguides.springboot.exception.ResourceNotFoundException;
 import net.javaguides.springboot.model.Timesheet;
 import net.javaguides.springboot.repository.TimesheetRepository;
-import lombok.extern.slf4j.Slf4j;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@Slf4j
 
 @RequestMapping("/api/v1/")
 public class TimesheetController {
@@ -34,8 +32,6 @@ public class TimesheetController {
 	// get all timesheets
 	@GetMapping("/timesheets")
 	public List<Timesheet> getAllTimesheets() {
-		log.info("logging sdsd");
-		log.debug("logging debug");
 		return timesheetRepository.findAll();
 	}
 
