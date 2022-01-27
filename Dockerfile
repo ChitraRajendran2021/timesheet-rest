@@ -8,7 +8,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 ARG JAR_FILE=target/springboot-backend-0.0.1-SNAPSHOT.jar
 
 # cp target/spring-boot-web.jar /opt/app/app.jar
-COPY ${JAR_FILE} springboot-backend-0.0.1-SNAPSHOT.jar
+COPY ${} target/springboot-backend-0.0.1-SNAPSHOT.jar
 
 # java -jar /opt/app/app.jar
 ENTRYPOINT ["java","-jar","springboot-backend-0.0.1-SNAPSHOT.jar"]
