@@ -61,9 +61,9 @@ public class TimesheetController {
 		Timesheet timesheet = timesheetRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Timesheet not exist with id :" + id));
 
-		timesheet.setFirstName(timesheetDetails.getFirstName());
-		timesheet.setLastName(timesheetDetails.getLastName());
-		timesheet.setEmailId(timesheetDetails.getEmailId());
+		timesheet.setLoginTime(timesheetDetails.getLoginTime());
+		timesheet.setLogoutTime(timesheetDetails.getLogoutTime());
+		timesheet.setCurrDate(timesheetDetails.getCurrDate());
 
 		Timesheet updatedTimesheet = timesheetRepository.save(timesheet);
 		return ResponseEntity.ok(updatedTimesheet);

@@ -10,52 +10,60 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "timesheets")
 public class Timesheet {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Column(name = "first_name")
-	private String firstName;
 
-	@Column(name = "last_name")
-	private String lastName;
-	
-	@Column(name = "email_id")
-	private String emailId;
-	
+	@Column(name = "login_time")
+	private String loginTime;
+
+	@Column(name = "logout_time")
+	private String logoutTime;
+
+	@Column(name = "curr_date")
+	private String currentDate;
+
 	public Timesheet() {
-		
+
 	}
-	
-	public Timesheet(String firstName, String lastName, String emailId) {
+
+	public Timesheet(String loginTime, String logoutTime, String currentDate) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailId = emailId;
+		this.loginTime = loginTime;
+		this.logoutTime = logoutTime;
+		this.currentDate = currentDate;
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getFirstName() {
-		return firstName;
+
+	public String getLoginTime() {
+		return loginTime;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+	public void setLoginTime(String loginTime) {
+		this.loginTime = loginTime;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public String getLogoutTime() {
+		return logoutTime;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public void setLogoutTime(String logoutTime) {
+		this.logoutTime = logoutTime;
 	}
-	public String getEmailId() {
-		return emailId;
+
+	public String getCurrDate() {
+		return currentDate;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+
+	public void setCurrDate(String currentDate) {
+		this.currentDate = currentDate;
 	}
 }
