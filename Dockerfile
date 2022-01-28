@@ -1,7 +1,10 @@
-FROM maven:3.6.3-jdk-11-slim AS build
-COPY pom.xml /
+FROM maven:3.6.3-jdk-11-slim AS builder
+WORKDIR /app
+COPY pom.xml . 
+RUN mvn dependency:go-offline
+COPY src/ /app/src/
 RUN mvn clean package -Dmaven.test.skip=true
 
-FROM adoptopenjdk/openjdk11:alpine-jre
-COPY target/springboot-backend-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM adoptopenjdk/openjdk11:jre-11.0.8_10-alpine
+COPY --from=builder /app/target/*.jar /app.jar
+CMD ["java","-jar","app.jar"]
