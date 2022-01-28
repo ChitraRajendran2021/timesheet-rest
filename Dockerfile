@@ -1,4 +1,4 @@
-FROM maven:3.5-jdk-8 AS build   
+FROM maven:3.6.3-jdk-11-slim AS build
 COPY . .
 RUN mvn clean package -Dmaven.test.skip=true
 
